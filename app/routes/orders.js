@@ -13,9 +13,9 @@ export default Ember.Route.extend({
 
 // custom model collection
 	model(){
-		return [
-			{ id:'1', name:'Don'},
-			{ id:'2', name:'Uschi'}
-		];
-	}
+		const store = this.get('store');
+		return store.getOrders();
+	},
+
+	store: Ember.inject.service()
 });
